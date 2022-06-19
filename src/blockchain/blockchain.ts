@@ -16,4 +16,20 @@ export default class Blockchain {
   getLastBlock(): Block {
     return this.blockchain[this.blockchain.length - 1];
   }
+
+  isValidChain(chain: Block[]): boolean {
+    if(JSON.stringify(chain[0]) !== JSON.stringify(Block.genGenesisBlock())) {
+      return false;
+    }
+
+    for (let i = 1; i < chain.length; ++i) {
+      const curBlock = chain[i];
+      const prevBlock = chain[i - 1];
+      if (curBlock.lastHash !== prevBlock.hash || curBlock.hash != Block.genHash(curBlock)) {
+        return false;
+      }
+    }
+
+    return true;
+  }
 }

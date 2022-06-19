@@ -26,7 +26,17 @@ export default class Block {
   }
 
   static genGenesisBlock(): Block  {
-    return new Block(Date.now(), "-----", "firsthash", config.get("difficulty"), 0, 0);
+    return new Block(0, "-----", "firsthash", config.get("difficulty"), 0, 0);
+  }
+
+  static genHash(block: Block): string {
+    return genHash(
+      block.timestamp +
+      block.lastHash +
+      block.data +
+      block.nonce +
+      block.difficulty
+    );
   }
 
   static mineBlock(lastBlock: Block, data: any): Block {

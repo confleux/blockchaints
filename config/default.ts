@@ -1,3 +1,4 @@
 export default {
-  difficulty: 3
+  difficulty: 3,
+  mineRate: 3000
 };

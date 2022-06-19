@@ -17,7 +17,7 @@ export default class Blockchain {
     return this.blockchain[this.blockchain.length - 1];
   }
 
-  isValidChain(chain: Block[]): boolean {
+  static isValidChain(chain: Block[]): boolean {
     if(JSON.stringify(chain[0]) !== JSON.stringify(Block.genGenesisBlock())) {
       return false;
     }

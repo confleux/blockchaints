@@ -1,5 +1,5 @@
 import config from "config";
-import { genHash } from "../utils/utils";
+import { genHash } from "../utils";
 
 export default class Block {
   timestamp: number;

@@ -1,5 +1,5 @@
 import config from "config";
-import { generateId } from "../utils/utils";
+import { generateId } from "../utils";
 import TxInput from "./txInput";
 import TxOutput from "./txOutput";
 
